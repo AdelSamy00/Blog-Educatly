@@ -1,0 +1,9 @@
+<div class="w-full grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-3">
+<div *ngFor="let post of Posts | paginate: { itemsPerPage: 6, currentPage: currentPage() }">
+    <app-post [post]="post"></app-post>
+  </div>
+</div>
+
+<div class="w-full flex justify-center items-center">
+  <pagination-controls (pageChange)="currentPage.set($event)"></pagination-controls>
+</div>

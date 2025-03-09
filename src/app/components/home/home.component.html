@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+@if (isLoading) {
+  <app-loading></app-loading>
+}
+<div class="w-full">
+  @if (_PostService.posts.length !== 0) {
+    <section class="w-full flex justify-center items-center posts">
+        <app-paginationControls [Posts]="_PostService.posts"></app-paginationControls>
+    </section>
+  }
+  @if (errorMessage !== '') {
+    <div class="w-full">
+      <app-errorMessage [errorMessage]="errorMessage" ></app-errorMessage>
+    </div>
+  }
+  
+</div>
